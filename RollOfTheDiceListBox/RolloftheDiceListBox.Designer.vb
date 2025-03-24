@@ -25,9 +25,7 @@ Partial Class RolloftheDiceListBox
         Me.ExitButton = New System.Windows.Forms.Button()
         Me.ClearButton = New System.Windows.Forms.Button()
         Me.RollButton = New System.Windows.Forms.Button()
-        Me.DiceValueLabel = New System.Windows.Forms.Label()
-        Me.MostFrequentLabel = New System.Windows.Forms.Label()
-        Me.RollCountLabel = New System.Windows.Forms.Label()
+        Me.ResultListBox = New System.Windows.Forms.ListBox()
         Me.SuspendLayout()
         '
         'ExitButton
@@ -57,55 +55,32 @@ Partial Class RolloftheDiceListBox
         Me.RollButton.Text = "Roll"
         Me.RollButton.UseVisualStyleBackColor = True
         '
-        'DiceValueLabel
+        'ResultListBox
         '
-        Me.DiceValueLabel.AutoSize = True
-        Me.DiceValueLabel.Location = New System.Drawing.Point(48, 92)
-        Me.DiceValueLabel.Name = "DiceValueLabel"
-        Me.DiceValueLabel.Size = New System.Drawing.Size(83, 16)
-        Me.DiceValueLabel.TabIndex = 3
-        Me.DiceValueLabel.Text = "Dice Values:"
-        '
-        'MostFrequentLabel
-        '
-        Me.MostFrequentLabel.AutoSize = True
-        Me.MostFrequentLabel.Location = New System.Drawing.Point(48, 272)
-        Me.MostFrequentLabel.Name = "MostFrequentLabel"
-        Me.MostFrequentLabel.Size = New System.Drawing.Size(122, 16)
-        Me.MostFrequentLabel.TabIndex = 4
-        Me.MostFrequentLabel.Text = "Most Frequent Roll:"
-        '
-        'RollCountLabel
-        '
-        Me.RollCountLabel.AutoSize = True
-        Me.RollCountLabel.Location = New System.Drawing.Point(48, 190)
-        Me.RollCountLabel.Name = "RollCountLabel"
-        Me.RollCountLabel.Size = New System.Drawing.Size(78, 16)
-        Me.RollCountLabel.TabIndex = 5
-        Me.RollCountLabel.Text = "Roll Counts:"
+        Me.ResultListBox.FormattingEnabled = True
+        Me.ResultListBox.ItemHeight = 16
+        Me.ResultListBox.Location = New System.Drawing.Point(172, 70)
+        Me.ResultListBox.Name = "ResultListBox"
+        Me.ResultListBox.Size = New System.Drawing.Size(434, 228)
+        Me.ResultListBox.TabIndex = 3
         '
         'RolloftheDiceListBox
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.RollCountLabel)
-        Me.Controls.Add(Me.MostFrequentLabel)
-        Me.Controls.Add(Me.DiceValueLabel)
+        Me.Controls.Add(Me.ResultListBox)
         Me.Controls.Add(Me.RollButton)
         Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.ExitButton)
         Me.Name = "RolloftheDiceListBox"
         Me.Text = "Roll of the Dice"
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents ExitButton As Button
     Friend WithEvents ClearButton As Button
     Friend WithEvents RollButton As Button
-    Friend WithEvents DiceValueLabel As Label
-    Friend WithEvents MostFrequentLabel As Label
-    Friend WithEvents RollCountLabel As Label
+    Friend WithEvents ResultListBox As ListBox
 End Class

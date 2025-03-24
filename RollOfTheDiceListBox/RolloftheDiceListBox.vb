@@ -8,6 +8,7 @@ Option Strict On
 Option Explicit On
 Option Compare Text
 Public Class RolloftheDiceListBox
+
     Dim rand As New Random()
 
     Dim rollCounts(11) As Integer
@@ -27,10 +28,7 @@ Public Class RolloftheDiceListBox
     End Sub
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
-
-        DiceValueLabel.Text = "Dice Values: "
-        RollCountLabel.Text = "Roll Counts: "
-        MostFrequentLabel.Text = "Most Frequent Roll: "
+        ResultListBox.Items.Clear()
         Array.Clear(rollCounts, 0, rollCounts.Length)
     End Sub
 
@@ -43,22 +41,26 @@ Public Class RolloftheDiceListBox
     End Function
 
     Private Sub DisplayResults()
+        ResultListBox.Items.Clear()
 
-        Dim diceValues As String = "Dice Values: "
-        For i As Integer = 2 To 12
-            diceValues &= i.ToString().PadLeft(4) & " "
-        Next
-        DiceValueLabel.Text = diceValues
+        Dim header As String = String.Join(" | ", {"Dice Value", "Times Rolled"})
 
+        ResultListBox.Items.Add(header)
 
-        Dim rollCountsText As String = "Roll Counts: "
-        For i As Integer = 0 To 10
-            rollCountsText &= rollCounts(i).ToString().PadLeft(4) & " "
-        Next
-        RollCountLabel.Text = rollCountsText
+        Dim separator As String = New String("-"c, header.Length)
+
+        ResultListBox.Items.Add(separator)
+
+        Dim diceValues As String = String.Join(" | ", Enumerable.Range(2, 11).Select(Function(i) i.ToString().PadLeft(6)))
+        Dim rollCountsDisplay As String = String.Join(" | ", rollCounts.Select(Function(count) count.ToString().PadLeft(4)))
+
+        ResultListBox.Items.Add(diceValues)
+        ResultListBox.Items.Add(rollCountsDisplay)
+
+        ResultListBox.Items.Add(separator)
 
         Dim maxIndex As Integer = Array.IndexOf(rollCounts, rollCounts.Max()) + 2
-        MostFrequentLabel.Text = $"Most Frequent Roll: {maxIndex}"
+        ResultListBox.Items.Add($"Most Frequent Roll: {maxIndex}")
     End Sub
 
 End Class
